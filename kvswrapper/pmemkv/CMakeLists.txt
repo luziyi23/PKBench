@@ -1,0 +1,26 @@
+cmake_policy(SET CMP0077 NEW)
+set(CMAKE_CXX_STANDARD 17)
+set(CXX_STANDARD 17)
+set(BUILD_DOC OFF CACHE BOOL "" FORCE)
+set(BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
+set(BUILD_TESTS OFF CACHE BOOL "" FORCE)
+set(BUILD_JSON_CONFIG OFF CACHE BOOL "" FORCE)
+set(ENGINE_VCMAP ON CACHE BOOL "" FORCE)
+set(ENGINE_VSMAP ON CACHE BOOL "" FORCE)
+set(ENGINE_CACHING OFF CACHE BOOL "" FORCE)
+set(ENGINE_STREE ON CACHE BOOL "" FORCE)
+set(ENGINE_TREE3 OFF CACHE BOOL "" FORCE)
+set(ENGINE_RADIX ON CACHE BOOL "" FORCE)
+set(ENGINE_CSMAP ON)
+set(ENGINE_ROBINHOOD ON)
+include(FetchContent)
+FetchContent_Declare(
+        pmemkv
+        GIT_REPOSITORY https://github.com/pmem/pmemkv.git
+        GIT_TAG 1.5.0
+)
+FetchContent_MakeAvailable(pmemkv)
+include_directories(${pmemkv_SOURCE_DIR}/src)
+message(${ENGINE_CSMAP})
+add_library(pmemkv_wrapper SHARED pmemkv_wrapper.cpp)
+target_link_libraries(pmemkv_wrapper pmemkv tbb pmem pmemobj)
