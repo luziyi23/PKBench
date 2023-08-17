@@ -12,7 +12,7 @@ rm -rf /mnt/pmem/datasize/*
 
 #flatstore
 # ./build/benchmark/PKBench  ./build/kvswrapper/flatstore-pacman/libflatstore_wrapper.so -n $datasize -p 10000000 -r 1 -t 24 -pool_path /mnt/pmem/pkbench/flatstore/ -pool_size 34359738368 -pcm
-./build/benchmark/PKBench-flatstore  ./build/kvswrapper/flatstore-pacman/libflatstore_wrapper.so -n 200000000 -p 10000000 -r 1 -t $thread -pool_path /mnt/pmem/datasize/ -pool_size 34359738368 -pcm
+./build/benchmark/PKBench  ./build/kvswrapper/flatstore-pacman/libflatstore_wrapper.so -n 200000000 -p 10000000 -r 1 -t $thread -pool_path /mnt/pmem/datasize/ -pool_size 34359738368 -pcm
 # ./build/benchmark/PKBench  ./build/kvswrapper/flatstore-pacman/libflatstore_wrapper.so -n $datasize -p 1000000 -r 1 -i 0 -t 1 -pool_path /mnt/pmem/datasize/ -pool_size 34359738368 -skip_load
 # ./build/benchmark/PKBench  ./build/kvswrapper/flatstore-pacman/libflatstore-h_wrapper.so -n $datasize -p 10000000 -r 0 -i 1 -t 24 -pool_path /mnt/pmem/datasize/ -pool_size 34359738368 -pcm -skip_load
 # ./build/benchmark/PKBench  ./build/kvswrapper/flatstore-pacman/libflatstore-m_wrapper.so -n $datasize -p 10000000 -r 1 -t 24 -pool_path /mnt/pmem/datasize/ -pool_size $pool_size -pcm

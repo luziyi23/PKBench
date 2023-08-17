@@ -1,8 +1,12 @@
 # 1 4 8 16 24 #
 for thread_num in 16 #1 4 8 16 24 32
 do
-# workload="-r 0.85 -i 0.15 -t $thread_num -distribution zipfian -scan_size 50 -skew=0.06"
-workload="-r 0.06 -i 0.94 -t $thread_num -distribution uniform"
+# workload="-r 0.5 -u 0.5 -t $thread_num -distribution zipfian" # ycsb
+# workload="-r 0.95 -u 0.05 -t $thread_num -distribution zipfian" # ycsb
+# workload="-r 1 -t $thread_num -distribution zipfian" # ycsb
+# workload="-r 0.9 -i 0.1 -t $thread_num -distribution latest" # ycsb
+# workload="-r 0.85 -i 0.15 -t $thread_num -distribution zipfian -skew=0.06" # twitter 1
+# workload="-r 0.06 -i 0.94 -t $thread_num -distribution uniform" # twitter 2
 echo "------------------------------------------------------------------"
 echo $workload
 echo "------------------------------------------------------------------"

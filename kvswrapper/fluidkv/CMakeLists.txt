@@ -18,8 +18,8 @@ option(KV_SEPARATION "Enabling KV seaparation to support variable-sized value bu
 # set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O0 -g -fstack-protector-all -fsanitize=address -mssse3 -mavx -mavx2 -mbmi2 -mlzcnt -mbmi -Wno-narrowing")
 # set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O0 -g  -mssse3 -mavx -mavx2 -mbmi2 -mlzcnt -mbmi -Wno-narrowing")
 # set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O0 -g -mssse3 -mavx -mavx2 -mbmi2 -mlzcnt -mbmi -Wno-narrowing")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -march=native -mssse3 -mavx -mavx2 -mbmi2 -mlzcnt -mbmi -Wno-narrowing -Wno-error=register")
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O3 -march=native -mssse3 -mavx -mavx2 -mbmi2 -mlzcnt -mbmi -Wno-narrowing -Wno-error=register")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -march=native -mssse3 -mavx -mavx2 -mbmi2 -mlzcnt -mbmi -Wno-narrowing -Wno-error=register  -fPIC")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O3 -march=native -mssse3 -mavx -mavx2 -mbmi2 -mlzcnt -mbmi -Wno-narrowing -Wno-error=register  -fPIC")
 
 
 # third-party: thread pool from rocksdb
