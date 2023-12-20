@@ -58,6 +58,9 @@ endif(PKBENCH_BUILD_BULLET)
 if(PKBENCH_BUILD_FLATSTORE)
     add_subdirectory(kvswrapper/flatstore-pacman)
     add_subdirectory(kvswrapper/flatstore-m)
+	add_subdirectory(kvswrapper/flatstore-NB)
+	add_subdirectory(kvswrapper/flatstore-LB)
+	add_subdirectory(kvswrapper/flatstore-DP)
 endif(PKBENCH_BUILD_FLATSTORE)
 
 if(PKBENCH_BUILD_LISTDB)
@@ -65,7 +68,7 @@ if(PKBENCH_BUILD_LISTDB)
 endif(PKBENCH_BUILD_LISTDB)
 
 if(PKBENCH_BUILD_FLUIDKV)
-    add_subdirectory(kvswrapper/fluidkv)
+    add_subdirectory(kvswrapper/FluidKV)
 endif(PKBENCH_BUILD_FLUIDKV)
 
 if(PKBENCH_BUILD_PACTREE)

@@ -6,8 +6,9 @@
 
 # flatstore-ff and -m
 # rm /mnt/pmem/pkbench/flatstore/*
-# ./build/benchmark/PKBench ./build/kvswrapper/flatstore-pacman/libflatstore_wrapper.so -v 8 -n 20000 -p 20000 -r 1 -t 1 -pool_path /mnt/pmem/pkbench/flatstore/ -pool_size 8589934592 -pcm
-# ./build/benchmark/PKBench  ./build/kvswrapper/flatstore-m/libflatstore_m_wrapper.so -v 8 -n 200000 -p 200000 -r 1 -t 1 -pool_path /mnt/pmem/pkbench/flatstore/ -pool_size 8589934592 -pcm
+# lib=flatstore-pacman/libflatstore_wrapper.so  # flatstore-pacman/libflatstore_wrapper.so flatstore-m/libflatstore_m_wrapper.so flatstore-NB/libflatstore_nb_wrapper.so flatstore-LB/libflatstore_lb_wrapper.so flatstore-DP/libflatstore_dp_wrapper.so
+# ./build/benchmark/PKBench ./build/kvswrapper/$lib -v 8 -n 20000 -p 20000 -r 1 -t 1 -pool_path /mnt/pmem/pkbench/flatstore/ -pool_size 8589934592 -pcm
+
 
 
 # pmemkv
