@@ -5,13 +5,13 @@ Modified based on [PiBench](https://github.com/sfu-dis/pibench) and adapted for 
 
 # KVS Support
 
-- FluidKV
-- FlatStore
-- ListDB
-- PacTree
-- Pmem-RocksDB
-- PmemKV
-- Viper
+- [FluidKV](github.com/luziyi23/fluidkv)
+- [FlatStore](https://github.com/thustorage/pacman)
+- [ListDB](https://github.com/DICL/listdb)
+- [PacTree](https://github.com/cosmoss-jigu/pactree)
+- [Pmem-RocksDB](https://github.com/pmem/pmem-rocksdb)
+- [PmemKV](https://github.com/pmem/pmemkv)
+- [Viper](https://github.com/hpides/viper)
 
 The interfaces and tests of Bullet, ERT, and LevelDB are not ready yet. 
 
@@ -72,7 +72,15 @@ Usage:
 Because of the different characteristics of different key-value stores, it is difficult to have perfect compatibility and some problems may occur. So we give some existing problems and tips for different databases respectively.
 
 ## FlatStore
-The directory `flatstore-pacman` represents FlatStore-ff which uses FastFair B+-tree as index. `flatstore-m` uses masstree, a volatile index, as index.
+We use different versions of FlatStore with different indexes. Here are their correspondences：
+
+|  Directory  | Index  | Description |
+|  ----  | ----  | ---- |
+| flatstore-pacman  | [Fast&Fair B+-tree](https://github.com/DICL/FAST_FAIR) | A persistent B+-tree |
+|  flatstore-m | [Masstree](https://github.com/kohler/masstree-beta ) | A volatile trie where each node is a B+-tree. We consider it to be a B+-tree because with 8-byte keys it degrades to only one trie node. |
+|flatstore-NB| [NBTree](https://github.com/SJTU-DDST/NBTree)| A lock-free PM-friendly persistent B+-Tree. For fairness, we disable its eADR-based optimization.
+|flatstore-LB| [LB+-Tree](https://github.com/schencoding/lbtree)| A persistent B+-tree which uses HTM to optimize for concurrency.
+|flatstore-DP| [DPTree](https://github.com/zxjcarrot/DPTree-code)| A multi-stage index including a volatile B+-tree stage, a read-only B+-tree stage, and a DRAM-PM hybrid trie stage.|
 
 After FlatStore executes a multi-threaded test, it may crash due to memory reclamation issues. Anyway, this does not affect the display of performance results.
 
